@@ -7,6 +7,7 @@
 # print (" " .join(new_text))
 
 
+# CALCULATOR 
 # def add(a,b) :
 #     return a+b
 # def sub(a,b):
@@ -50,15 +51,44 @@
 #         print("invalid choice")
 
 
-nums = [1,2,2,3,4,4,5]
-y = set(nums)
-z = list(y)
+# nums = [1,2,2,3,4,4,5]
+# y = set(nums)
+# z = list(y)
 #print(z)
 
 # x= (input("enter the number:"))
 # print(len(x))
 
-val = [10, 5, 50, 20, 25]
-val.sort()
-print(val)
-print(val[len(val)-1])
+# val = [10, 5, 50, 20, 25]
+# val.sort()
+# print(val)
+# print(val[len(val)-1])
+ 
+# text = "Hello World"
+# upper = 0
+# lower = 0
+# for ch in text :
+#    if ch.isupper():
+#     upper += 1
+#    elif ch.islower():
+#      lower += 1
+# print(upper)
+# print(lower)
+
+# sent = "Python is very easy to learn"   
+# freq = {}
+# data = sent.split()
+# for val in data:
+#     length = len(val)
+#     if length in freq :
+#         freq[length] += 1
+#     else:
+#         freq[length] = 1
+# print(freq)
+
+# with open ("notes.txt", "w") as f:
+#     f.write("Hello , Vaish \n welcome to the world")
+# with open ("notes.txt","r") as f:
+#     data = f.read()
+#     print(data)
+
