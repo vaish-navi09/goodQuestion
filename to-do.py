@@ -14,9 +14,18 @@ def add_task () :
     tasks.append(task)
     print("task added")
 
+    with open ("text.txt", "a") as f:
+        f.write(task + "\n")
+
+    
+
 def view_task():
     for task in tasks:
         print(task)
+    with open ("text.txt","r") as f :
+        data=f.read()
+        print(data)
+        
 def remove_task():
      task = input("enter the task to remove")
      if task in tasks:
