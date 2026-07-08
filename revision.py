@@ -92,3 +92,23 @@
 #     data = f.read()
 #     print(data)
 
+# nums = [5,8,11,14,17,20,22]
+# count_even = 0
+# count_odd = 0 
+# for val in nums:
+#     if val % 2 == 0:
+#         count_even+=1
+#     else:
+#         count_odd+=1
+# print("odd no:",count_odd)
+# print("even no:",count_even)
+
+# nums = [1,2,2,3,1,4,5,4]
+# new_nums = []
+# for val in nums:
+#     if val not in new_nums:
+#         new_nums.append(val)
+#     else:
+#         continue
+# print(new_nums)
+
