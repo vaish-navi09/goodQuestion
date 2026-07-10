@@ -47,11 +47,11 @@
 # print(nums)
 
 
-nums = [4,7,2,3,9,1]
+nums = [3,1,4,1,5,9,2]
 for j in range(len (nums)):
     
     for i in range (j+1,len(nums)):
-        if nums[j] + nums[i] == 10 :
-            print(nums[j], nums[i])
+        if nums[j] + nums[i] == 5 :
+            print((nums[j], nums[i]))
 
 

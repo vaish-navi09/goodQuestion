@@ -112,3 +112,34 @@
 #         continue
 # print(new_nums)
 
+# nums = [1,2,3,2,4,1,2]
+# for i in range(len(nums)):
+#     time = 1
+#     if nums[i] in nums[:i]:
+#         continue
+#     for j in range (i+1,len(nums)):
+#         if nums[i] == nums[j]:
+#             time+= 1
+#     if time >=2 :
+#          print(nums[i],":",time ,"times")
+
+# nums = [16,17,4,3,5,2]
+# for i in range (len(nums)):
+#     leader = True
+#     for j in range (i+1,len(nums)):
+#       if nums[i]<nums[j]:
+#         leader= False 
+#         break
+#     if leader:
+#          print(nums[i])
+
+# words = ["apple","banana","apple","orange","banana","apple"]
+# freq = {}
+# for val in words:
+#     if val in freq :
+#         freq[val] += 1
+#     else:
+#         freq[val] = 1
+
+# print(freq)
+
