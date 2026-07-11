@@ -47,11 +47,39 @@
 # print(nums)
 
 
-nums = [3,1,4,1,5,9,2]
-for j in range(len (nums)):
+# nums = [3,1,4,1,5,9,2]
+# for j in range(len (nums)):
     
-    for i in range (j+1,len(nums)):
-        if nums[j] + nums[i] == 5 :
-            print((nums[j], nums[i]))
+#     for i in range (j+1,len(nums)):
+#         if nums[j] + nums[i] == 5 :
+#             print((nums[j], nums[i]))
+
+# nums = [10 ,5,8,7,8]
+# # nums = (list(set(nums)))   another method 
+# print(nums)
+# lar = float("-inf")
+# sec_lar = float("-inf")
+# for num in nums:
+#     if num > lar :
+#         sec_lar = lar
+#         lar  = num
+#     elif num > sec_lar and sec_lar != lar  :
+#         sec_lar = num
+    
+# print("second_lar:", sec_lar)
 
 
+text = "python programming is very interesting"
+length = float("-inf")
+longest = " "
+longest_word = []
+
+words = text.split()
+for word in words:
+    if len(word) > length:
+        length = len(word)
+        longest_word = []
+        longest_word.append(word)
+    elif len(word) == length:
+        longest_word.append(word)
+print(longest_word)
