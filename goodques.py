@@ -69,17 +69,48 @@
 # print("second_lar:", sec_lar)
 
 
-text = "python programming is very interesting"
-length = float("-inf")
-longest = " "
-longest_word = []
+# text = "python programming is very interesting"
+# length = float("-inf")
+# longest = " "
+# longest_word = []
 
-words = text.split()
-for word in words:
-    if len(word) > length:
-        length = len(word)
-        longest_word = []
-        longest_word.append(word)
-    elif len(word) == length:
-        longest_word.append(word)
-print(longest_word)
+# words = text.split()
+# for word in words:
+#     if len(word) > length:
+#         length = len(word)
+#         longest_word = []
+#         longest_word.append(word)
+#     elif len(word) == length:
+#         longest_word.append(word)
+# print(longest_word)
+
+
+
+# nums = [2,3,4,5]
+# new_num = []
+
+# for i in range(len(nums)) :
+#     pro = 1
+#     for j in range(len(nums)):
+#       if i == j :
+#          continue
+#       pro = pro * nums[j]
+#     new_num.append(pro)
+# print(new_num)   
+
+
+nums = [1,2,3,7,8,10,11,12,13]
+max_length = 1       
+length = 1        
+for i in range (len(nums)-1):
+  if  nums[i+1]- nums[i] == 1:
+    length+= 1
+  else:
+      length = 1
+  if length> max_length:
+   max_length = length 
+print("longest consecutive sequence",max_length)
+
+
+
+    
