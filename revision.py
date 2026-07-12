@@ -143,3 +143,14 @@
 
 # print(freq)
 
+words = ["cat", "apple", "dog","banana","car","grape","hi"]
+freq = {}
+
+for word in words :
+    if len(word) not in  freq:
+        lis = []
+        lis.append(word)
+        freq[len(word)] = lis
+    elif len(word) in freq:
+        freq[len(word)].append(word)
+print(freq)
