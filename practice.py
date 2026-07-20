@@ -69,17 +69,91 @@
     
 # print(merge)
 
-str = "abcbcde"
-max_len = 0
-lis = []
-for ch in str:
-    if ch not in lis:
-        lis.append(ch)
-    else:
-        while ch in lis:
-            lis.pop(0)
-        lis.append(ch)
-    max_len = max(max_len,len(lis))
-print(max_len)
+# str = "abcbcde"
+# max_len = 0
+# lis = []
+# for ch in str:
+#     if ch not in lis:
+#         lis.append(ch)
+#     else:
+#         while ch in lis:
+#             lis.pop(0)
+#         lis.append(ch)
+#     max_len = max(max_len,len(lis))
+# print(max_len)
     
+#second most frequent word 
+
+# text = "apple banana apple mango banana apple mango"
+# text = text.split()
+# text = list(text)
+# freq ={}
+# for ch in text:
+#     if ch in freq :
+#         freq[ch] += 1
+#     else:
+#         freq[ch] = 1
+
+# print(freq)
+# new_text = sorted(freq.items(), key= lambda item : item[1])
+
+# for i in range(len(new_text)):
+#    if new_text[i][1] == new_text[-2][1]:
+#     print(new_text[i][0],",", new_text[-2][0])
+#     break
+
+#    else:
+#       print(new_text[-2][0])
+
+
+      # LONGEST SEQUENCE USING SET
+# nums = [100,4,200,5,6,7,8]
+# nums = set(nums)
+# longest = 0
+# for num in nums:
+#     if num -1 not in nums:
+#         current = num
+#         length = 1
+#         while current+1 in nums:
+#             current += 1
+#             length += 1
+#         longest = max(longest,length)
+# print(longest)
+
+
+def check_password():
+   
+    has_upper= False
+    has_lower = False
+    has_digit = False
+    has  = False
+
+    for pas in password:
+        if pas.islower():
+            has_lower = True
+        if pas.isupper():
+            has_upper = True
+        if pas.isdigit():
+            has_digit = True
+        if pas in "@#$%^&*":
+            has = True
+    if len(password) >= 8 and has_digit and has_lower and has_upper and has :
+            print("strong Password")
+            
+    else:
+            print("weak Password")
+
+
+password = input("enter the password:")
+check_password()
+    
+
+
+
+
+
+
+
+
+
 
