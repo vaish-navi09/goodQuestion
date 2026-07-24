@@ -121,32 +121,93 @@
 # print(longest)
 
 
-def check_password():
-   
-    has_upper= False
-    has_lower = False
-    has_digit = False
-    has  = False
+# text = "programming"
+# freq = {}
+# for ch in text:
+#     if ch in freq:
+#         freq[ch] += 1
+#     else:
+#         freq[ch] = 1
 
-    for pas in password:
-        if pas.islower():
-            has_lower = True
-        if pas.isupper():
-            has_upper = True
-        if pas.isdigit():
-            has_digit = True
-        if pas in "@#$%^&*":
-            has = True
-    if len(password) >= 8 and has_digit and has_lower and has_upper and has :
-            print("strong Password")
-            
-    else:
-            print("weak Password")
+# new_text = sorted(freq.items(),key = lambda iteam : iteam[1] , reverse= True)
+# print(new_text)
 
-
-password = input("enter the password:")
-check_password()
+# new = []
+# for i in range(len(new_text)):
+#     for j in range(new_text[i][1]):
+#         new.append(new_text[i][0])
+     
+# print("".join(new))
     
+# nums = [1,1,1,2,2,3,3,3,4]
+# freq= {}
+# for num in nums:
+#     if num in freq:
+#         freq[num] += 1
+#     else:
+#         freq[num] = 1
+# new_num = sorted(freq.items(),key= lambda iteam : iteam[1], reverse = True)
+
+# numx =[]
+# for i in range(2):
+#     numx.append(new_num[i][0])
+# print(numx)
+    
+# nums = [4,5,2,10,8]
+# new_num= []
+
+# for i in range(len(nums)):
+#     found = False
+#     for j in range(i+1,len(nums)):
+#         if nums[i]< nums[j]:
+#             found = True
+#             new_num.append(nums[j])
+#             break
+#     if not found:
+#             new_num.append(-1)
+# print(new_num)
+
+
+# nums = [1,2,2,4,5,6]
+# freq= {}
+# for num in nums:
+#     if num in freq:
+#         freq[num] += 1
+#     else:
+#         freq[num] = 1
+
+# for key ,value in freq.items():
+#     if value > 1:
+#         print("duplicate:", key)
+
+# for numx in range(1,len(nums)+1):
+#     if numx not in freq: 
+#         print("missing:", numx)
+    
+
+nums = [10,5,2,7,1,9]
+total= 15
+length = 0
+new_sum = 0
+lis =[]
+best_lis =[]
+for i in range(len(nums)):
+    new_sum = new_sum + nums[i]
+    lis .append(nums[i])
+    while new_sum > total:
+       new_sum = new_sum-lis[0]
+       lis.pop(0)
+    
+    if new_sum == total:
+        if len(lis) > length:
+            length = len(lis)
+            best_lis = lis.copy()
+print(length)
+print(best_lis)
+  
+    
+    
+
 
 
 
