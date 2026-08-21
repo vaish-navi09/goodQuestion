@@ -104,6 +104,78 @@ for i in range (len(nums)):
           seen[state]=i 
 print(longest)
 
+#COUNT SUBARRAYS WITH XOR = K 
+nums=[4,2,2,6,4]
+k= 6
+seen={0:1}
+pref_xor = 0
+count = 0
+for num in nums:
+     pref_xor ^= num
+     if pref_xor not in seen:
+          seen[pref_xor] = 1
+     else:
+          seen[pref_xor] += 1
+     if pref_xor ^ k in seen:
+          count += seen[pref_xor ^ k]
+print(count, "count of xor")
+
+#SUBARRAY MAX XOR
+nums =[8,1,2,12,7,6]
+max_xor = 0
+prefix =[0]
+curr_xor = 0
+for num in nums:
+     curr_xor ^= num
+     for prev in prefix:
+          sub = curr_xor ^ prev
+          if sub > max_xor:
+             max_xor = sub
+     prefix.append(curr_xor)
+print(max_xor,"max_xor")
+
+
+# MAXIMUM SUBARRAY  SUM WITH ONE DELETION
+nums = [1,-2,0,3]
+pre_norm= 0
+pre_dele = float("-inf")
+curr_sum = 0
+answer = float("-inf")
+for num in nums:
+     curr = num
+     normal = max(curr_sum,pre_norm +curr)
+     deleted = max(pre_norm, pre_dele + curr)
+
+     answer = max(answer,normal, deleted)
+
+     pre_norm = normal
+     pre_dele = deleted
+print(answer, "max sum with one del")
+
+#maximum sum circular subarray
+nums= [5,-3,5]
+pre_max = 0
+pre_min = 0
+total = 0
+sec_best= float("inf")
+best =  float("-inf")
+for num in nums :
+     total += num
+     curr = num 
+     max_sum = max(curr , curr+ pre_max)
+     best = max(best , max_sum)
+     min_sum = min(curr, curr +pre_min)
+     sec_best = min(sec_best, min_sum)
+
+     pre_max = max_sum
+     pre_min = min_sum
+answer = total - sec_best
+answer =max(answer, best)
+print(answer)
+
+
+
+
 
      
     
