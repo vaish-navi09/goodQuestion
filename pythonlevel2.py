@@ -173,7 +173,21 @@ answer = total - sec_best
 answer =max(answer, best)
 print(answer)
 
-
+#max LENGTH SUARRAY WITH SUM DIVISIBLE BY K 
+nums = [2,7,6,1,4,5]
+k = 3
+seen = {0:-1}
+pref_sum = 0
+longest = 0
+for i in range (len(nums)):
+     pref_sum+= nums[i]
+     if pref_sum % k in seen:
+          length = i - seen[pref_sum % k]
+          if length > longest:
+               longest = length
+     else:
+          seen[pref_sum % k] = i 
+print(longest, "max length divisible by k")
 
 
 
