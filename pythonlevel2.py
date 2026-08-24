@@ -190,6 +190,85 @@ for i in range (len(nums)):
 print(longest, "max length divisible by k")
 
 
+# LONGEST SUBARRAY WITH AT MOST K DISTInCT ELEMENTS
+nums = [1,2,1,2,3]
+k = 2
+right = 0
+left = 0
+freq = {}
+longest = 0
+
+while right < len(nums):
+     freq[nums[right]] = freq.get(nums[right],0) + 1
+     while len(freq) > k:
+          freq[nums[left]] -= 1
+          if freq[nums[left]] == 0:
+               del freq[nums[left]]
+          left+= 1
+     length = right-left +1
+     if length> longest:
+          longest = length
+     right += 1
+print(longest ,"longest at most k distinct ele")
+
+# count subarrays with exactly k distinct elements
+nums = [1,2,1,2,3]
+
+def atmost(k):
+     right = 0
+     left = 0
+     freq = {}
+     count = 0
+     while right < len(nums):
+          freq[nums[right]]= freq.get(nums[right],0)+1
+          while len(freq) > k:
+               freq[nums[left]] -= 1
+               if freq[nums[left]] == 0 :
+                    del freq[nums[left]]
+               left += 1
+          length = right- left +1
+          count += length
+          right += 1
+     return count 
+exactly= atmost(2)- atmost(1)
+print(exactly, "exactly k dis elem counts")
+
+
+# MINIMUM WINDOW CONTAINING ALL VALUES
+nums = [2,1,2,3,1,2,4]
+target = [1,2,3]
+right = 0
+left = 0
+freq = {}
+formed = 0
+req = len(target)
+min_length = float("inf")
+while right < len(nums):
+     if nums[right] in target:
+          freq[nums[right]] = freq.get(nums[right],0) +1
+          if freq[nums[right]] == 1:
+               formed += 1
+               while formed == req :
+                    length = right-left+1
+                    if length < min_length:
+                         min_length= length
+                         start = left
+
+                    if nums[left] in freq:
+                       freq[nums[left]] -= 1
+                       if freq[nums[left]]== 0:
+                         del freq[nums[left]]
+                         formed -= 1
+                    left += 1
+     right += 1
+answer = nums[start: start+min_length]
+print(answer,"mini number contain all ele of target")
+     
+                    
+
+
+
+
 
      
     
