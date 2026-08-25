@@ -19,7 +19,7 @@ print(longest)
 print(best_lis)
 
 
-# COUNT SUBARRAY WITH SUM K 
+#COUNT SUBARRAY WITH SUM K 
 nums = [1,2,3]
 k = 3
 count = 0
@@ -36,7 +36,7 @@ for num in nums :
 
 print("count=",count)
 
-# longest consecutive sequence
+#longest consecutive sequence
 nums = [100,4,200,1,3,2]
 nums =set(nums)
 longest= 0
@@ -263,8 +263,67 @@ while right < len(nums):
      right += 1
 answer = nums[start: start+min_length]
 print(answer,"mini number contain all ele of target")
-     
-                    
+
+#circular next grEATER ELE
+nums = [1,2,1]    
+answer = [-1,-1,-1]   
+stack= []   
+n = len(nums)     
+for i in range (2*len(nums)):
+     index = i% n
+     curr = nums[index]
+     while stack and curr > nums[stack[-1]]:
+          wait_index = stack.pop()
+          answer[wait_index] = curr
+     if i < len(nums):
+          stack.append(index)
+print(answer,"circular next great")
+
+#median from data stream-two heap
+import heapq
+nums = [5,2,8,1,7]
+small = []
+large = []
+for curr in nums:
+     if not small:
+          heapq.heappush(small,-curr)
+     elif curr < -small[-1]:
+          heapq.heappush(small, -curr)
+     else:
+          heapq.heappush(large,curr)
+     if len(small) - len(large) > 1:
+          value= -heapq.heappop(small)
+          heapq.heappush(large, value)
+     if len(large) - len(small) > 1:
+          value = heapq.heappop(large)
+          heapq.heappush(small, value)
+     if len(large)==len(small):
+          median= (-small[0] + large[0])/2
+     if len(large)- len(small) == 1:
+          median = large[0]
+     if len(small) - len(large) == 1:
+          median = -small[0]
+print(median,"mid value of random array")
+
+
+# longest subarray with sum <= k
+nums = [2,1,3,2,1]
+right = 0
+left = 0
+total = 0
+longest = 0
+k = 5
+while right < len(nums):
+     total += nums[right]
+     while total > k :
+          total -= nums[left]
+          left += 1
+     length = right - left + 1
+     if length > longest :
+          longest = length
+     right += 1
+print(longest,"len of longest sum less than k")
+
 
 
 
