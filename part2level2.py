@@ -124,62 +124,119 @@
 
 
 
-# INTERVAL PROBLEMS
-interval = [[1,3],[2,6],[8,10],[9,12]]
-interval = sorted(interval)
-merge = []
-merge.append(interval[0])
-for i in range(1,len(interval)):
-    if merge[-1][1] >= interval[i][0]:
-        merge[-1][1] = max(interval[i][1],merge[-1][1])
-    else:
-        merge.append(interval[i])
-print(merge)
+# # INTERVAL PROBLEMS
+# interval = [[1,3],[2,6],[8,10],[9,12]]
+# interval = sorted(interval)
+# merge = []
+# merge.append(interval[0])
+# for i in range(1,len(interval)):
+#     if merge[-1][1] >= interval[i][0]:
+#         merge[-1][1] = max(interval[i][1],merge[-1][1])
+#     else:
+#         merge.append(interval[i])
+# print(merge)
         
-interval = [[1,3],[6,9]]
-newInterval = [2,5]
-interval = sorted(interval)
-for i in range (len(interval)):
-    if interval[i][1]>newInterval[0]:
-        interval[i][1] = max(interval[i][1],newInterval[1])
-print(interval)
+# interval = [[1,3],[6,9]]
+# newInterval = [2,5]
+# interval = sorted(interval)
+# for i in range (len(interval)):
+#     if interval[i][1]>newInterval[0]:
+#         interval[i][1] = max(interval[i][1],newInterval[1])
+# print(interval)
 
-interval =[[1,2],[2,3],[3,4],[1,3]]
-interval =sorted(interval)
-last_end= interval[0][1]
-count = 0
-for i in range(1,len(interval)):
-    if last_end > interval[i][0]:
-        count += 1
-        if last_end > interval[i][1]:
-            last_end= interval[i][1]
-print(count,"interval to remove")
+# interval =[[1,2],[2,3],[3,4],[1,3]]
+# interval =sorted(interval)
+# last_end= interval[0][1]
+# count = 0
+# for i in range(1,len(interval)):
+#     if last_end > interval[i][0]:
+#         count += 1
+#         if last_end > interval[i][1]:
+#             last_end= interval[i][1]
+# print(count,"interval to remove")
 
-interval = [[0,30],[5,10],[15,20]]
-start_time =[]
-end_time =[]
-for i in range (len(interval)):
-    start_time.append(interval[i][0])
-    end_time.append(interval[i][1])
-start_time.sort()
-end_time.sort()
-room = 0
-end = 0
-start= 0
-maxiroom = 0
-while start <len(start_time) and end < len(end_time):
-    if start_time[start]<end_time[end]:
-        room +=1
-        start += 1
-        if maxiroom< room:
-            maxiroom = room
+# interval = [[0,30],[5,10],[15,20]]
+# start_time =[]
+# end_time =[]
+# for i in range (len(interval)):
+#     start_time.append(interval[i][0])
+#     end_time.append(interval[i][1])
+# start_time.sort()
+# end_time.sort()
+# room = 0
+# end = 0
+# start= 0
+# maxiroom = 0
+# while start <len(start_time) and end < len(end_time):
+#     if start_time[start]<end_time[end]:
+#         room +=1
+#         start += 1
+#         if maxiroom< room:
+#             maxiroom = room
             
-    else:
-        room -= 1
-        end += 1
-print(room,"maximum room")
+#     else:
+#         room -= 1
+#         end += 1
+# print(room,"maximum room")
 
-     
+
+
+#stack problem
+
+#valid parenthese
+s = "({[]})"  
+lis =[]
+value = True
+for i in range (len(s)):
+    if s[i] in "({[":
+        lis.append(s[i])
+    else:
+        if not lis :
+            value = False
+        x = lis.pop()
+        if (x =="["and s[i] == "]") or (x =="{"and s[i] =="}")or (x =="("and s[i]==")"):
+      
+          continue
+        else:
+          value = False
+        if lis:
+           value = False
+print(value)
+# remove adjavent duplicate
+s= "abbaca"
+lis = []
+for i in range(len(s)):
+    if not lis:
+       lis.append(s[i])
+    elif lis[-1] != s[i]:
+       lis.append(s[i])
+    else:
+       lis.pop()
+print("".join(lis))
+# greater number from in right
+nums = [2,1,5,3,4]
+answer = [-1]*len(nums)
+stack = []
+for i in range (len(nums)):
+   while stack and nums[stack[-1]] < nums[i]:
+      index = stack.pop()
+      answer[index] = nums[i]
+   stack.append(i)
+print(answer)
+   
+#days we get max temprature
+temp = [73,74,75,71,69,72,76,73]
+stack = []
+answer = [0]*len(temp)
+for i in range (len(temp)):
+   while stack and temp[stack[-1]] < temp[i]:
+      index = stack.pop()
+      answer[index] = i - index
+   stack.append(i)
+print(answer)
+
+           
+
 
 
 
