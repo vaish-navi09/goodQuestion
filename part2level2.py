@@ -181,7 +181,7 @@ print(room,"maximum room")
 
 
 
-stack problem
+#stack problem
 
 #valid parenthese
 s = "({[]})"  
@@ -312,8 +312,80 @@ for i in range(len(heights)):
      stack.append(i)
 print(max_area,"max rectangle ")
    
-           
+ # pair with given difference          
+nums =[1,3,5,8,12] 
+k = 7
+left = 0
+right = len(nums)-1
+while left< right:
+    if nums[right]-nums[left]>k:
+        right -= 1
+    elif nums[right]-nums[left]<k:
+        left += 1
+    else:
+        print(True) 
+        break
+else:
+    print(False)     
+
+# container with most water
+height= [1,8,6,2,5,4,8,3,7]
+left = 0
+max_water = 0
+right = len(height)-1
+while left<right:
+    if height[left]<height[right]:
+        heigh = height[left]
+        width = right-left
+        water = heigh*width
+        left += 1
+    else:
+        heigh = height[right]
+        width = right-left
+        water = heigh * width
+        right -= 1
+    if water > max_water:
+        max_water = water
+print(max_water,"most water contain")
+
+# 3Sum equal zero
+nums =[-1,0,1,2,-1,-4]
+nums = sorted(nums)   # -4,-1,-1,0,1,2
+result = []
+for fixed in range(len(nums)-2):
+    left = fixed+1
+    right = len(nums)-1
+    while left<right:
+        if nums[fixed]+nums[left]+nums[right]> 0:
+            right -= 1
+        elif  nums[fixed]+nums[left]+nums[right]< 0:
+            left += 1
+        else:
+             result.append([nums[right],nums[left],nums[fixed]])
+             left += 1
+             right -= 1
+print(result)
+
+# Trapping rain water
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+left = 0
+right = len(height)-1
+max_left = height[left]
+max_right = height[right]
+water = 0
+while left< right:
+    if height[left]< height[right]:
+        max_left = max(max_left,height[left])
+        water +=  max_left-height[left]
+        left += 1
+    else:
+        max_right = max(max_right, height[right])
+        water += max_right-height[right]
+        right -= 1
+print(water)
          
+
+
 
    
 
