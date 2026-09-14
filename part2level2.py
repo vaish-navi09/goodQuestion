@@ -355,6 +355,8 @@ result = []
 for fixed in range(len(nums)-2):
     left = fixed+1
     right = len(nums)-1
+    if fixed > 0 and nums[fixed] == nums[fixed-1]:
+        continue
     while left<right:
         if nums[fixed]+nums[left]+nums[right]> 0:
             right -= 1
@@ -364,6 +366,11 @@ for fixed in range(len(nums)-2):
              result.append([nums[right],nums[left],nums[fixed]])
              left += 1
              right -= 1
+             while left < right and nums[left]==nums[left-1]:
+                 left += 1
+             while left< right and nums[right] == nums[right+1]:
+                 right -= 1
+
 print(result)
 
 # Trapping rain water
@@ -385,7 +392,44 @@ while left< right:
 print(water)
          
 
+nums = [100,4,200,1,3,2]
+nums = sorted(nums)
+max_length = 0
+for num in nums :
+    if num-1 not in nums:
+        curr = num
+        length = 1
+        while curr+1 in nums:
+            length += 1
+            curr += 1
+        if max_length< length:
+            max_length = length
+print(max_length,"longest consecutive seq")
 
+# product of array except itself
+nums =[1,2,3,4]
+pre =[]
+
+num =[]
+pre.append(1)
+pro = 1
+for i in range(len(nums)-1):
+    pro = nums[i]*pre[-1]
+    pre.append(pro)
+pro = 1
+suff =[]
+for i in range(len(nums)-1,-1,-1):
+    suff.append(pro)
+    pro = pro*nums[i]
+suff.reverse()
+for i in range(len(nums)):
+    num.append(pre[i]*suff[i])
+print(num,"product of array except itself")
+
+
+
+    
+         
 
    
 
