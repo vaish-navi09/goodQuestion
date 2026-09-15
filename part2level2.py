@@ -426,7 +426,33 @@ for i in range(len(nums)):
     num.append(pre[i]*suff[i])
 print(num,"product of array except itself")
 
+# find dublicate number:
+nums =[1,3,4,2,2]
+slow = nums[0]
+fast = nums[0]
+while True:
+    slow = nums[slow]
+    fast = nums[nums[fast]]
+    if slow == fast:
+        break
+slow =nums[0]
+while slow!= fast:
+        slow = nums[slow]
+        fast = nums[fast]
+print(slow,"duplicate")
 
+# rotate array
+nums =[1,2,3,4,5,6,7]
+k = 3
+def rotate_part(nums,left,right):
+    while left < right:
+        nums[left] , nums[right] = nums[right],nums[left]
+        left += 1
+        right -= 1
+rotate_part(nums,0,len(nums)-1)
+rotate_part(nums,0,k-1)
+rotate_part(nums,k,len(nums)-1)
+print(nums) 
 
     
          
